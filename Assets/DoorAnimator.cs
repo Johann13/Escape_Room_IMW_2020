@@ -8,10 +8,13 @@ public class DoorAnimator : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    public Text msg;
+    public string openMsg = "Click to Open";
+    public string closeMsg = "Click to Close";
+
     private Animator _animator;
     private bool isInRange = false;
 
-    public Text msg;
 
     void Start()
     {
@@ -21,26 +24,20 @@ public class DoorAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInRange)
+        if (_animator != null && isInRange)
         {
-            if (_animator != null)
+            if (_animator.GetBool("Open"))
             {
-                if (_animator.GetBool("Open"))
-                {
-                    msg.text = "Click to Close";
-                }
-                else
-                {
-                    msg.text = "Click to Open";
-                }
+                msg.text = closeMsg;
             }
-        }
-        
-        if (Input.GetMouseButtonUp(0) && isInRange)
-        {
-            Debug.Log(name + " MouseClick");
-            if (_animator != null)
+            else
             {
+                msg.text = openMsg;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                Debug.Log(name + " MouseClick");
                 bool open =
                     _animator.GetBool("Open");
                 _animator.SetBool("Open", !open);
