@@ -51,6 +51,6 @@ public class SelectionManager : MonoBehaviour
  
     void Update()
     {
-        //HighlightObjectInCenterOfCam();
+        HighlightObjectInCenterOfCam();
     }
 }
