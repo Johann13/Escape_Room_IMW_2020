@@ -4866,7 +4866,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Time
 --- !u!222 &966149306
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6892,7 +6892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6cc6c0012a46c40a47065b08822ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingTime: 10
+  remainingTime: 600
   timeText: {fileID: 966149305}
   msgText: {fileID: 565050355}
   debugText: {fileID: 1917144806}
