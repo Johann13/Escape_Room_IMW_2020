@@ -13,7 +13,7 @@ public class DoorAnimator : MonoBehaviour
     public string closeMsg = "Click to Close";
 
     private Animator _animator;
-    private bool isInRange = false;
+    protected bool isInRange = false;
 
 
     void Start()
@@ -24,17 +24,20 @@ public class DoorAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_animator != null && isInRange)
+        if (isInRange)
         {
             if (_animator.GetBool("Open"))
             {
-                msg.text = closeMsg;
+                msg.text = CloseMsg();
             }
             else
             {
-                msg.text = openMsg;
+                msg.text = OpenMsg();
             }
+        }
 
+        if (_animator != null && CanOpenDoor())
+        {
             if (Input.GetMouseButtonUp(0))
             {
                 Debug.Log(name + " MouseClick");
@@ -47,14 +50,27 @@ public class DoorAnimator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter: " + name);
         isInRange = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit: " + name);
         isInRange = false;
         msg.text = "";
+    }
+
+    public virtual bool CanOpenDoor()
+    {
+        return isInRange;
+    }
+
+    public virtual String OpenMsg()
+    {
+        return openMsg;
+    }
+
+    public virtual String CloseMsg()
+    {
+        return closeMsg;
     }
 }
