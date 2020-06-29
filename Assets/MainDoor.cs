@@ -1,10 +1,12 @@
-﻿public class MainDoor : DoorAnimator
+﻿using UnityEngine.SceneManagement;
+
+public class MainDoor : DoorAnimator
 {
     public GameManager GameManager;
 
     public override bool CanOpenDoor()
     {
-        return isInRange && GameManager.hasDoorKey;
+        return isInRange && GameManager.hasDoorKey && GameManager.hasLaptop;
     }
 
 
@@ -21,5 +23,10 @@
         }
 
         return base.OpenMsg();
+    }
+
+    public override void OnOpen()
+    {
+        SceneManager.LoadScene(4);
     }
 }

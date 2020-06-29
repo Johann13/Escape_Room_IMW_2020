@@ -6598,7 +6598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b92aeabf2e17a142810185faf8c5a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingTime: 60
+  remainingTime: 300
   timeText: {fileID: 966149305}
   msgText: {fileID: 565050355}
   hasDoorKey: 0

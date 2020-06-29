@@ -44,6 +44,10 @@ public class DoorAnimator : MonoBehaviour
                 bool open =
                     _animator.GetBool("Open");
                 _animator.SetBool("Open", !open);
+                if (!open)
+                {
+                    OnOpen();
+                }
             }
         }
     }
@@ -72,5 +76,9 @@ public class DoorAnimator : MonoBehaviour
     public virtual String CloseMsg()
     {
         return closeMsg;
+    }
+
+    public virtual void OnOpen()
+    {
     }
 }
